@@ -1,0 +1,238 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+header {
+
+   background-color: bisque;
+text-align: center;
+position: relative;
+width: 100%;
+z-index: 999;
+
+ 
+
+display: grid;
+grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
+
+
+
+
+}
+
+
+.logo {
+
+    color: red;
+ 
+  grid-column: 2 / 3;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    border: 1px solid red;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+
+    display:block;
+    background: blue;
+    height: 3px;
+    width: 2em;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+nav {
+position: absolute;
+  background: bisque;  
+  width: 100%;
+text-align: left;
+top: 100%;
+left: 0;
+
+grid-auto-columns: 3 / 4;
+all: unset;
+
+
+
+transform: scale(1, 0) ;
+transition: transform 400ms ease-in-out;
+transform-origin: top;
+}
+
+
+
+nav ul {
+    
+
+ list-style: none;
+ background-color: sandybrown;
+margin: 0;
+padding: 0;
+
+}
+
+nav li {
+   
+ padding: 5px 0px;
+ margin: 0 0 1em 1em;
+
+}
+
+
+nav a {
+    text-decoration: none;
+    border: 2px solid black;
+   text-transform: uppercase;
+   opacity: 0;
+
+   transition: opacity 150ms ease-in-out 250ms;
+
+
+   
+}
+
+nav a:hover {
+   
+    background-color: silver;
+}
+
+.nav-toggle:checked ~ nav {
+   transform: scale(1, 1);
+
+
+}
+
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+ transition: opacity 250ms ease-in-out 250ms;
+}
+
+body
+{
+background: rgb(223, 217, 231);
+}
+
+@media screen and (min-width: 600px) {
+    .nav-toggle-label {
+        display: none;
+    }
+    header {
+        display: grid;
+        grid-template-columns:  1fr auto minmax(600px, 3fr) 1fr;
+    }
+.logo {
+    grid-column: 2 / 3;
+}
+nav {
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav a {
+    opacity: 1;
+}
+nav ul {
+    display: flex;
+    
+}
+nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+}
+
+}
+
+
+
+
+
+.grid {
+   
+
+    display: grid;
+    gap: 10px;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+    'headergrid headergrid headergrid'
+    'lside content rside'
+    'footer footer footer';
+    text-align: center;
+    margin-top: 10px;
+    
+}
+div > * {
+    
+    padding: 10px;
+}
+
+.headergrid {
+    background-color: aquamarine;
+    grid-area: headergrid;
+    
+}
+
+.content{
+    background-color: silver;
+    grid-area: content;
+}
+
+.lside {
+    background-color: aqua;
+    grid-area: lside;
+} 
+  
+.rside {
+    background-color: aqua;
+    grid-area: rside;
+}
+
+#rsidecontent {
+    background-color: silver;
+    border: 5px solid white;
+    border-radius: 10px;
+   }
+
+#rsidecontent a {
+     text-decoration: none;
+}
+
+#rsidecontent a:hover {
+    color: red;
+}
+
+.footer {
+    background-color: aquamarine;
+    grid-area: footer;
+}
